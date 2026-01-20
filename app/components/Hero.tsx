@@ -3,7 +3,7 @@
 import Reveal from "@/components/Reveal";
 import { useTypewriter } from "@/hooks/useTypewriter";
 
-const line = "Full Stack Developer focused on backend-heavy systems.";
+const line = "Full Stack Developer";
 
 export default function Hero() {
   const typed = useTypewriter(line, 35);
