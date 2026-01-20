@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth theme transition */
+* {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Base HTML */
+html {
+  scroll-behavior: smooth;
+}
+
+/* LIGHT THEME VARIABLES */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: 255 255 255;         /* white */
+  --bg-soft: 245 247 250;
+  --card: 255 255 255;
+  --border: 229 231 235;
+  --text: 17 24 39;
+  --muted: 107 114 128;
+  --accent: 99 102 241;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* DARK THEME VARIABLES */
+.dark {
+  --bg: 3 7 18;              /* dark navy */
+  --bg-soft: 10 15 30;
+  --card: 15 23 42;
+  --border: 30 41 59;
+  --text: 226 232 240;
+  --muted: 148 163 184;
+  --accent: 99 102 241;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* BODY USES VARIABLES (IMPORTANT) */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(var(--bg));
+  color: rgb(var(--text));
+}
+
+/* COMPONENT STYLES */
+@layer components {
+  .input {
+    @apply w-full rounded-xl px-5 py-3
+    bg-[rgb(var(--card))]
+    border border-[rgb(var(--border))]
+    text-[rgb(var(--text))]
+    placeholder:text-[rgb(var(--muted))]
+    focus:outline-none focus:ring-2 focus:ring-indigo-500/50;
+  }
 }
