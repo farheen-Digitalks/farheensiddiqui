@@ -35,10 +35,10 @@ export default function Hero() {
             </h1>
           </p>
 
-          <p className="text-sm md:text-base text-[rgb(var(--muted))] max-w-xl ml-auto">
+          {/* <p className="text-sm md:text-base text-[rgb(var(--muted))] max-w-xl ml-auto">
             I build HRMS platforms, admin dashboards, and backend‑heavy systems
             using Node.js, MongoDB, Angular, and Next.js.
-          </p>
+          </p> */}
 
           <div className="flex flex-wrap gap-4 pt-4 justify-end">
             <a
