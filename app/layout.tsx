@@ -38,8 +38,8 @@ export default function RootLayout({
           <SectionProvider>
             <SideNavbar />
             <main className="relative z-0 pt-10 pb-16">{children}</main>
-            <Footer />
           </SectionProvider>
+            <Footer />
         </ThemeProvider>
       </body>
     </html>
