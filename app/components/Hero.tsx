@@ -3,17 +3,16 @@
 import Reveal from "@/components/Reveal";
 import { useTypewriter } from "@/hooks/useTypewriter";
 
-const line = "Full Stack Developer";
+const TITLES = ["Full Stack Developer", "Backend Developer"];
 
 export default function Hero() {
-  const typed = useTypewriter(line, 35);
+  const typed = useTypewriter(TITLES, 80, 2000, 40, 600);
 
   return (
     <Reveal>
       <section
         id="hero"
         className="h-screen flex items-center bg-cover bg-center"
-       
       >
         <div className="ml-auto max-w-5xl w-full space-y-4 text-right rounded-3xl p-8">
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
@@ -24,15 +23,22 @@ export default function Hero() {
             .
           </h1>
 
-          <p className="text-2xl md:text-3xl font-semibold text-[rgb(var(--text))]">
-            {typed}
-            <span className="inline-block h-5 w-1 align-middle bg-[rgb(var(--text))] ml-1 animate-pulse" />
+          {/* big animated rotating title */}
+          <p className="text-4xl md:text-5xl font-extrabold leading-tight">
+            {" "}
+            <h1>I&apos;m a {" "}
+            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              {typed}
+            </span>
+            {/* cursor: always blinking, independent of typed text */}
+            <span className="inline-block h-6 w-[2px] align-middle bg-[rgb(var(--text))] ml-1 animate-pulse" />
+            </h1>
           </p>
 
-          {/* <p className="text-sm md:text-base text-[rgb(var(--muted))] max-w-xl ml-auto">
+          <p className="text-sm md:text-base text-[rgb(var(--muted))] max-w-xl ml-auto">
             I build HRMS platforms, admin dashboards, and backend‑heavy systems
             using Node.js, MongoDB, Angular, and Next.js.
-          </p> */}
+          </p>
 
           <div className="flex flex-wrap gap-4 pt-4 justify-end">
             <a
