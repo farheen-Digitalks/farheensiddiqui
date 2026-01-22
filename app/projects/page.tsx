@@ -6,13 +6,7 @@ import Reveal from "@/components/Reveal";
 export default function Projects() {
   return (
     <Reveal>
-      <section
-        id="projects"
-        className="
-          py-6 lg:py-24
-          px-4 sm:px-8
-        "
-      >
+      <section id="projects" className="py-6 lg:py-24 px-4 sm:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-2">Projects</h2>
           <div className="w-20 h-1 bg-blue-500 mx-auto mb-6" />
@@ -31,54 +25,65 @@ export default function Projects() {
                   rounded-2xl
                   border border-gray-800/90
                   cursor-pointer
-                  h-69
+                  h-72
                   shadow-sm
                   transition-[transform,box-shadow,border-color] duration-300 ease-out
                   hover:shadow-2xl hover:border-blue-500/70 hover:-translate-y-1 hover:scale-[1.02]
                 "
               >
-                {/* FRONT FACE */}
+                {/* FULL IMAGE BACKGROUND */}
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="
+                    absolute inset-0
+                    w-full h-full
+                    object-cover
+                    transition-transform duration-300 ease-out
+                    group-hover:scale-105
+                  "
+                />
+
+                <div className="absolute inset-0 bg-black/40" />
+
+                {/* FRONT TITLE */}
                 <div
                   className="
+                    relative z-20
                     h-full w-full
                     flex items-center justify-center
-                    px-8
+                    px-6
                     text-center
                     transition-opacity duration-200 ease-out
                     group-hover:opacity-0
                   "
                 >
-                  <div className="flex flex-col items-center gap-3">
-                    {/* <span className="text-xs uppercase tracking-[0.25em] text-gray-500">
-                      Project
-                    </span> */}
-                    <span className="text-2xl text-[rgb(var(--muted))] font-semibold">
-                      {project.title}
-                    </span>
-                  </div>
+                  <span className="text-2xl text-white font-semibold">
+                    {project.title}
+                  </span>
                 </div>
 
-                {/* SMOOTH FADE + SLIDE DETAILS */}
+                {/* DETAILS – simple fade + slide (no shutter) */}
                 <div
                   className="
-    pointer-events-none
-    absolute inset-0
-    z-10
-    flex flex-col justify-between
-    px-6 py-5
+                    absolute inset-0
+                    z-30
+                    flex flex-col justify-end
+                    px-6 pb-5 pt-10
+                    bg-gradient-to-t from-black/85 via-black/50 to-transparent shuuter-overlay
 
-    opacity-0 translate-y-4
-    transition-all duration-300 ease-out
-    delay-150
-    group-hover:opacity-100 group-hover:translate-y-0
-    group-hover:delay-150
-  "
+                    opacity-0 translate-y-4
+                    transition-all duration-300 ease-out
+                    delay-150
+                    group-hover:opacity-100 group-hover:translate-y-0
+                    group-hover:delay-150
+                  "
                 >
                   <div className="text-left">
-                    <h3 className="text-lg text-[rgb(var(--muted))] font-bold mb-2 line-clamp-2">
+                    <h3 className="text-lg text-white font-bold mb-2 line-clamp-2">
                       {project.title}
                     </h3>
-                    <p className="text-sm text-[rgb(var(--muted))] leading-snug line-clamp-5">
+                    <p className="text-sm text-gray-200 leading-snug line-clamp-4">
                       {project.description}
                     </p>
                   </div>
@@ -90,10 +95,10 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="
                         flex-1 text-xs text-center
-                        border border-gray-400
+                        border border-gray-300/80
                         rounded-lg px-3 py-2
-                        text-[rgb(var(--muted))]
-                        hover:bg-gray-100/80
+                        text-gray-100
+                        hover:bg-white/10
                         transition-colors duration-200
                       "
                     >
