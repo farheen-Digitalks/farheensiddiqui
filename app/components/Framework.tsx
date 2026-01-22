@@ -8,23 +8,21 @@ import {
   SiExpress,
   SiMongodb,
   SiMysql,
-  SiPostman
+  SiPostman,
+  SiBootstrap,
+  SiTypescript,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 
 export function Framework() {
   return (
     <div>
-      <h3 className="text-2xl font-semibold text-center mb-12 text-[rgb(var(--text))]">
-        Frameworks & Libraries
-      </h3>
+      <div className="mb-10 text-center">
+        <h5 className="text-xs italic text-[rgb(var(--muted))]"></h5>
+      </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {[
-          {
-            name: "Tailwind CSS",
-            icon: <SiTailwindcss className="text-[#38BDF8]" />,
-          },
           {
             name: "Angular",
             icon: <SiAngular className="text-[#DD0031]" />,
@@ -36,6 +34,18 @@ export function Framework() {
           {
             name: "React",
             icon: <SiReact className="text-[#38BDF8]" />,
+          },
+          {
+            name: "Tailwind CSS",
+            icon: <SiTailwindcss className="text-[#38BDF8]" />,
+          },
+          {
+            name: "Bootstrap",
+            icon: <SiBootstrap className="text-[#7952B3]" />,
+          },
+          {
+            name: "TypeScript",
+            icon: <SiTypescript className="text-[#3178C6]" />,
           },
           {
             name: "Node.js",
@@ -64,7 +74,7 @@ export function Framework() {
           {
             name: "Postman",
             icon: <SiPostman className="text-[#FF6C37]" />,
-          }
+          },
         ].map((item) => (
           <div
             key={item.name}
