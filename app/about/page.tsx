@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import Skills from "@/skills/page";
+import Projects from "@/projects/page";
 
 export default function About() {
   return (
@@ -55,6 +56,7 @@ export default function About() {
       </section>
 
       <Skills />
+      <Projects />
     </Reveal>
   );
 }

@@ -8,7 +8,9 @@ export default function Projects() {
     <Reveal>
       <section id="projects" className="py-6 lg:py-24 px-4 sm:px-8">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-2">Projects</h2>
+          <h2 className="text-2xl italic text-[rgb(var(--muted))] text-center mb-2">
+            Projects
+          </h2>
           <div className="w-20 h-1 bg-blue-500 mx-auto mb-6" />
 
           <p className="text-[rgb(var(--muted))] max-w-2xl mx-auto mb-12 text-center">

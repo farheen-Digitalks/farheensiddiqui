@@ -9,7 +9,10 @@ export default function Skills() {
         {/* Title */}
         <Reveal>
           <div className="mb-10 text-center">
-            <h5 className="text-xs italic text-[rgb(var(--muted))]">My skills</h5>
+            <h5 className="text-2xl italic text-[rgb(var(--muted))]">
+              My skills
+            </h5>
+            <div className="w-20 h-1 bg-blue-500 mx-auto mb-6" />
           </div>
         </Reveal>
 
