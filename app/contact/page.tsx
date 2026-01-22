@@ -12,6 +12,8 @@ export default function Contact() {
               Get in touch
             </p> */}
             <h2 className="text-3xl md:text-4xl font-bold mb-3">Contact</h2>
+            <div className="w-20 h-1 bg-blue-500 mx-auto mb-6" />
+
             <p className="text-[rgb(var(--muted))] max-w-2xl mx-auto text-sm md:text-base">
               I&apos;m open to full‑time opportunities and freelance projects.
             </p>

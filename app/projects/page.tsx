@@ -1,71 +1,127 @@
 "use client";
 
-import { useState } from "react";
 import { projects } from "@/lib/projects";
-import { motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
 
 export default function Projects() {
-  const [active, setActive] = useState<(typeof projects)[number] | null>(null);
-
   return (
     <Reveal>
-    <section id="projects" className="py-3 text-center px-6">
+      <section
+        id="projects"
+        className="
+          py-6 lg:py-24
+          px-4 sm:px-8
+        "
+      >
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-2">Projects</h2>
+          <div className="w-20 h-1 bg-blue-500 mx-auto mb-6" />
 
-        <h2 className="text-4xl font-bold mb-2">Projects</h2>
-        <div className="w-20 h-1 bg-blue-500 mx-auto mb-6" />
+          <p className="text-[rgb(var(--muted))] max-w-2xl mx-auto mb-12 text-center">
+            Real-world applications focused on backend systems, scalability, and
+            role-based access.
+          </p>
 
-        <p className="text-gray-400 max-w-xl mx-auto mb-12">
-          Real-world applications focused on backend systems, scalability, and
-          role-based access.
-        </p>
-
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {projects.map((project) => (
-            <motion.div
-              key={project.id}
-              whileHover={{ y: -6 }}
-              className="border border-gray-800 rounded-xl p-6 cursor-pointer hover:border-purple-500 transition"
-              onClick={() => setActive(project)}
-            >
-              <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
-              <p className="text-gray-400">{project.description}</p>
-            </motion.div>
-          ))}
-        </div>
-
-        {active && (
-          <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center px-4">
-            <div className="bg-zinc-900 p-8 rounded-xl max-w-md w-full text-left">
-              <h3 className="text-2xl font-bold mb-3">{active.title}</h3>
-              <p className="text-gray-400 mb-6">{active.description}</p>
-
-              <div className="flex gap-4">
-                <a
-                  href={active.github}
-                  target="_blank"
-                  className="border px-4 py-2 rounded-lg"
-                >
-                  GitHub
-                </a>
-                <a
-                  href={active.live}
-                  target="_blank"
-                  className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white"
-                >
-                  Live Demo
-                </a>
-              </div>
-
-              <button
-                className="mt-6 text-gray-400 hover:text-white"
-                onClick={() => setActive(null)}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                className="
+                  group relative overflow-hidden
+                  rounded-2xl
+                  border border-gray-800/90
+                  cursor-pointer
+                  h-69
+                  shadow-sm
+                  transition-[transform,box-shadow,border-color] duration-300 ease-out
+                  hover:shadow-2xl hover:border-blue-500/70 hover:-translate-y-1 hover:scale-[1.02]
+                "
               >
-                Close
-              </button>
-            </div>
+                {/* FRONT FACE */}
+                <div
+                  className="
+                    h-full w-full
+                    flex items-center justify-center
+                    px-8
+                    text-center
+                    transition-opacity duration-200 ease-out
+                    group-hover:opacity-0
+                  "
+                >
+                  <div className="flex flex-col items-center gap-3">
+                    {/* <span className="text-xs uppercase tracking-[0.25em] text-gray-500">
+                      Project
+                    </span> */}
+                    <span className="text-2xl text-[rgb(var(--muted))] font-semibold">
+                      {project.title}
+                    </span>
+                  </div>
+                </div>
+
+                {/* SMOOTH FADE + SLIDE DETAILS */}
+                <div
+                  className="
+    pointer-events-none
+    absolute inset-0
+    z-10
+    flex flex-col justify-between
+    px-6 py-5
+
+    opacity-0 translate-y-4
+    transition-all duration-300 ease-out
+    delay-150
+    group-hover:opacity-100 group-hover:translate-y-0
+    group-hover:delay-150
+  "
+                >
+                  <div className="text-left">
+                    <h3 className="text-lg text-[rgb(var(--muted))] font-bold mb-2 line-clamp-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-[rgb(var(--muted))] leading-snug line-clamp-5">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-4 flex gap-3">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
+                        flex-1 text-xs text-center
+                        border border-gray-400
+                        rounded-lg px-3 py-2
+                        text-[rgb(var(--muted))]
+                        hover:bg-gray-100/80
+                        transition-colors duration-200
+                      "
+                    >
+                      GitHub
+                    </a>
+
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="
+                        flex-1 text-xs text-center
+                        rounded-lg px-3 py-2
+                        bg-gradient-to-r from-blue-500 to-purple-500
+                        text-white
+                        hover:from-blue-600 hover:to-purple-600
+                        shadow-md hover:shadow-lg
+                        transition-all duration-200
+                      "
+                    >
+                      Live Demo
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-        )}
+        </div>
       </section>
     </Reveal>
   );

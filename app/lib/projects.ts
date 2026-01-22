@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: 1,
-    title: "HRMS System",
+    title: "HRMS",
     description:
       "Employee management system with payroll, attendance, and statutory modules.",
     image: "/app/assets/images/download (10).jpg",
@@ -11,6 +11,16 @@ export const projects = [
   },
   {
     id: 2,
+    title: "HIMS",
+    description:
+      "Employee management system with payroll, attendance, and statutory modules.",
+    image: "/app/assets/images/download (10).jpg",
+    tech: ["Node.js", "MongoDB", "Express", "Angular"],
+    github: "https://github.com/yourusername/hrms",
+    live: "https://hrms-demo.vercel.app",
+  },
+  {
+    id: 3,
     title: "Job Portal",
     description: "Job posting and application platform with role-based access.",
     image: "/app/assets/images/download (11).jpg",
