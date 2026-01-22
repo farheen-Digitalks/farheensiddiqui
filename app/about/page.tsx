@@ -27,7 +27,7 @@ export default function About() {
             <p className="text-[rgb(var(--muted))] leading-relaxed mb-6">
               I&apos;m{" "}
               <span className="font-semibold text-[rgb(var(--text))]">
-                Farheen
+                Farheen Siddiqui
               </span>
               , a full stack developer focused on backend‑heavy systems, HRMS
               platforms, and admin dashboards using Node.js, MongoDB, Angular,

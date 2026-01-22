@@ -11,6 +11,8 @@ import {
   SiPostman,
   SiBootstrap,
   SiTypescript,
+  SiEclipseide,
+  SiGithub,
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 
@@ -75,6 +77,14 @@ export function Framework() {
             name: "Postman",
             icon: <SiPostman className="text-[#FF6C37]" />,
           },
+          {
+            name: "Eclipse",
+            icon: <SiEclipseide className="text-[#2C2255]" />,
+          },
+          {
+            name: "GitHub",
+            icon: <SiGithub />,
+          }
         ].map((item) => (
           <div
             key={item.name}

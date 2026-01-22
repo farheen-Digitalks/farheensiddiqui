@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Left */}
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()}{" "}
-            <span className="font-medium">Farheen</span>. All rights reserved.
+            <span className="font-medium">Farheen Siddiqui</span>. All rights reserved.
           </p>
 
           {/* Center */}
