@@ -1,19 +1,47 @@
+"use client";
+
+import { FormEvent, useState } from "react";
 import Reveal from "@/components/Reveal";
 import { MapPin, Phone, Mail } from "lucide-react";
 
+const GOOGLE_FORM_ACTION =
+  "https://docs.google.com/forms/u/0/d/18hZllZzCEnjz7STClBXkNOs7pk7jxzhF6lEDGp5HBtw/formResponse";
+
 export default function Contact() {
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      await fetch(GOOGLE_FORM_ACTION, {
+        method: "POST",
+        body: data,
+        mode: "no-cors", // Google Forms ke liye
+      });
+
+      form.reset(); // form clear [web:146]
+      setStatus("success");
+
+      // 3s baad popup hide
+      setTimeout(() => setStatus("idle"), 3000);
+    } catch (err) {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 3000);
+    }
+  };
+
   return (
     <Reveal>
       <section id="contact" className="py-3 px-6">
         <div className="w-full max-w-6xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-12">
-            {/* <p className="text-xs uppercase tracking-[0.25em] text-[rgb(var(--muted))] mb-2">
-              Get in touch
-            </p> */}
             <h2 className="text-3xl md:text-4xl font-bold mb-3">Contact</h2>
             <div className="w-20 h-1 bg-blue-500 mx-auto mb-6" />
-
             <p className="text-[rgb(var(--muted))] max-w-2xl mx-auto text-sm md:text-base">
               I&apos;m open to full‑time opportunities and freelance projects.
             </p>
@@ -29,22 +57,40 @@ export default function Contact() {
             "
           >
             {/* LEFT: FORM */}
-            <form className="space-y-5 text-sm md:pr-8 md:border-r border-[rgb(var(--border))] pb-6 md:pb-0">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-5 text-sm md:pr-8 md:border-r border-[rgb(var(--border))] pb-6 md:pb-0"
+            >
               <div className="grid md:grid-cols-2 gap-4">
-                <input type="text" placeholder="Your name" className="input" />
+                <input
+                  type="text"
+                  name="entry.159954832"
+                  placeholder="Your name"
+                  className="input"
+                  required
+                />
                 <input
                   type="email"
+                  name="entry.445634187"
                   placeholder="Your email"
                   className="input"
+                  required
                 />
               </div>
 
-              <input type="text" placeholder="Subject" className="input" />
+              <input
+                type="text"
+                name="entry.1337169108"
+                placeholder="Subject"
+                className="input"
+              />
 
               <textarea
                 rows={5}
+                name="entry.329277012"
                 placeholder="Message"
                 className="input resize-none"
+                required
               />
 
               <div className="flex justify-end">
@@ -63,9 +109,21 @@ export default function Contact() {
                   Send message
                 </button>
               </div>
+
+              {/* Simple popup */}
+              {status === "success" && (
+                <div className="mt-4 text-xs md:text-sm text-green-600 bg-green-50 border border-green-200 px-4 py-2 rounded-lg">
+                  Message sent successfully.
+                </div>
+              )}
+              {status === "error" && (
+                <div className="mt-4 text-xs md:text-sm text-red-600 bg-red-50 border border-red-200 px-4 py-2 rounded-lg">
+                  Something went wrong. Please try again.
+                </div>
+              )}
             </form>
 
-            {/* RIGHT: CONTACT INFO */}
+            {/* RIGHT: CONTACT INFO (same as before) */}
             <div className="space-y-8">
               <div className="space-y-6 text-sm">
                 <ContactRow

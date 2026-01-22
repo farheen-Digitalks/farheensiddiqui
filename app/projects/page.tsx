@@ -9,7 +9,7 @@ export default function Projects() {
       <section id="projects" className="py-6 lg:py-24 px-4 sm:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl italic text-[rgb(var(--muted))] text-center mb-2">
-            Projects
+            Portfolio
           </h2>
           <div className="w-20 h-1 bg-blue-500 mx-auto mb-6" />
 
