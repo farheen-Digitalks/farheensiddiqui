@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 
-const TITLES = ["Full Stack Developer", "Backend Developer"];
+const TITLES = ["Full Stack Developer", "Backend Developer", "Next.js Developer"];
 
 export default function Hero() {
   const typed = useTypewriter(TITLES, 80, 2000, 40, 600);
@@ -13,9 +13,9 @@ export default function Hero() {
     <Reveal>
       <section
         id="hero"
-        className="h-screen flex items-center bg([rgb(var(--transparent))]"
+        className="h-screen flex items-center justify-start bg-[rgb(var(--transparent))]"
       >
-        <div className="ml-auto max-w-5xl w-full space-y-4 text-right rounded-3xl p-8">
+        <div className="ml-4 max-w-4xl w-full space-y-2 text-left rounded-3xl">
           <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
             Hi, I&apos;m{" "}
             <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
@@ -39,7 +39,7 @@ export default function Hero() {
             using Node.js, MongoDB, Angular, and Next.js.
           </p> */}
 
-          <div className="flex flex-wrap gap-4 pt-4 justify-end">
+          <div className="flex flex-wrap gap-4 pt-4 ">
             <a
               href="/Farheen_Siddiqui_Resume.pdf"
               download

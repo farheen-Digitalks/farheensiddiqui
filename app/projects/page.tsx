@@ -18,7 +18,11 @@ export default function Projects() {
             role-based access.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10  rounded-3xl
+              shadow-[0_18px_50px_rgba(15,23,42,0.18)]
+              p-8 md:p-10"
+          >
             {projects.map((project) => (
               <div
                 key={project.id}
